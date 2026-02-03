@@ -8,52 +8,55 @@
 }
 
 /* =========================
-   VARIABLES – ADMIN PREMIUM
+   VARIABLES – CYBER NEON
 ========================= */
 :root {
-  --bg-main: #050b18;
-  --bg-secondary: #0b1f3a;
+  --bg-main: #070816;
+  --bg-secondary: #0f1026;
 
-  --admin-blue: #123c7c;
-  --admin-blue-light: #1f5fbf;
+  --neon-purple: #7a2cff;
+  --neon-blue: #00cfff;
+  --neon-pink: #ff2fd1;
 
-  --gold-main: #d4af37;
-  --gold-light: #f5d76e;
-  --gold-dark: #8c6b1f;
+  --glow-purple: rgba(122,44,255,0.7);
+  --glow-blue: rgba(0,207,255,0.7);
+  --glow-pink: rgba(255,47,209,0.7);
 
-  --text-main: #eef2ff;
-  --text-muted: rgba(238,242,255,0.65);
+  --text-main: #f5f6ff;
+  --text-muted: rgba(245,246,255,0.6);
 
-  --glass: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.05);
 }
 
 /* =========================
-   BODY
+   BODY – FONDO GAMER
 ========================= */
 body {
   font-family: 'Russo One', sans-serif;
+
   background:
-    radial-gradient(circle at 20% 10%, #123c7c, transparent 45%),
-    radial-gradient(circle at 80% 90%, #050b18, transparent 55%),
+    radial-gradient(circle at 20% 10%, rgba(255,47,209,0.25), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(0,207,255,0.25), transparent 45%),
+    radial-gradient(circle at 60% 40%, rgba(122,44,255,0.25), transparent 50%),
     var(--bg-main);
+
   color: var(--text-main);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 /* =========================
-   SUBTLE OVERLAY
+   OVERLAY GLOW
 ========================= */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.03),
-    transparent 40%,
-    rgba(0,0,0,0.35)
-  );
+
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0.03), transparent 40%),
+    radial-gradient(circle at center, rgba(122,44,255,0.08), transparent 70%);
+
   pointer-events: none;
   z-index: 1;
 }
@@ -78,7 +81,7 @@ body::before {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.5s ease;
+  animation: fadeIn 0.45s ease;
 }
 
 .section.active {
@@ -97,22 +100,26 @@ body::before {
 }
 
 /* =========================
-   CONTENT BOX – ADMIN GLASS
+   CONTENT BOX – GLASS NEON
 ========================= */
 .content-box {
   background: linear-gradient(
     145deg,
-    rgba(18,60,124,0.65),
-    rgba(5,11,24,0.9)
+    rgba(20,18,50,0.85),
+    rgba(10,10,25,0.95)
   );
+
   backdrop-filter: blur(14px);
+
   border-radius: 22px;
   padding: 28px;
   text-align: center;
-  border: 1px solid rgba(212,175,55,0.35);
+
+  border: 1px solid rgba(122,44,255,0.4);
+
   box-shadow:
-    0 0 40px rgba(18,60,124,0.85),
-    inset 0 0 20px rgba(212,175,55,0.12);
+    0 0 35px var(--glow-purple),
+    inset 0 0 18px rgba(0,207,255,0.12);
 }
 
 /* =========================
@@ -121,63 +128,77 @@ body::before {
 .logo {
   width: 100%;
   margin-bottom: 25px;
+
   filter:
-    drop-shadow(0 0 10px rgba(212,175,55,0.9))
-    drop-shadow(0 0 22px rgba(18,60,124,0.9));
+    drop-shadow(0 0 10px var(--glow-pink))
+    drop-shadow(0 0 25px var(--glow-blue));
 }
 
 /* =========================
-   INPUT
+   INPUT – NEON STYLE
 ========================= */
 input {
   width: 100%;
   padding: 14px;
   margin-top: 12px;
+
   border-radius: 14px;
-  border: 1px solid rgba(212,175,55,0.45);
+  border: 1px solid rgba(122,44,255,0.5);
+
   outline: none;
   font-size: 15px;
-  background: rgba(3,8,20,0.85);
-  color: var(--gold-light);
+
+  background: rgba(5,6,18,0.9);
+  color: var(--neon-blue);
+
   text-align: center;
-  box-shadow: inset 0 0 14px rgba(0,0,0,0.6);
+
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
 }
 
 input::placeholder {
-  color: rgba(238,242,255,0.45);
+  color: rgba(255,255,255,0.35);
 }
 
 /* =========================
-   BUTTON – ADMIN GOLD
+   BUTTON – GRADIENT NEON
 ========================= */
 button {
   margin-top: 22px;
   width: 100%;
   padding: 16px;
+
   border-radius: 18px;
   border: none;
+
   font-size: 15px;
   cursor: pointer;
+
   background: linear-gradient(
     135deg,
-    var(--gold-dark),
-    var(--gold-main),
-    var(--gold-light)
+    var(--neon-purple),
+    var(--neon-pink),
+    var(--neon-blue)
   );
-  color: #1a1200;
+
+  color: white;
   text-transform: uppercase;
   letter-spacing: 2px;
+
   box-shadow:
-    0 0 25px rgba(212,175,55,0.9),
-    inset 0 0 8px rgba(255,255,255,0.35);
+    0 0 25px var(--glow-pink),
+    0 0 45px var(--glow-blue);
+
   transition: all 0.25s ease;
 }
 
 button:hover {
-  transform: scale(1.06);
+  transform: scale(1.07);
+
   box-shadow:
-    0 0 40px rgba(212,175,55,1),
-    0 0 60px rgba(18,60,124,0.8);
+    0 0 45px var(--glow-pink),
+    0 0 70px var(--glow-blue),
+    0 0 90px var(--glow-purple);
 }
 
 /* =========================
@@ -186,10 +207,12 @@ button:hover {
 h2 {
   margin-bottom: 16px;
   font-size: 22px;
-  color: var(--gold-light);
+
+  color: var(--neon-pink);
+
   text-shadow:
-    0 0 10px rgba(212,175,55,0.8),
-    0 0 18px rgba(18,60,124,0.9);
+    0 0 10px var(--glow-pink),
+    0 0 25px var(--glow-purple);
 }
 
 p {
@@ -209,20 +232,25 @@ p {
 }
 
 /* =========================
-   CARD – ADMIN STYLE
+   CARD – CYBER STYLE
 ========================= */
 .card {
   background: linear-gradient(
     160deg,
-    rgba(18,60,124,0.7),
-    rgba(7,16,35,0.9)
+    rgba(30,25,70,0.9),
+    rgba(12,12,28,0.95)
   );
+
   border-radius: 16px;
   padding: 8px;
+
   cursor: pointer;
-  border: 1px solid rgba(212,175,55,0.35);
+
+  border: 1px solid rgba(122,44,255,0.35);
+
   transition: all 0.3s ease;
-  box-shadow: 0 0 18px rgba(18,60,124,0.6);
+
+  box-shadow: 0 0 18px rgba(122,44,255,0.4);
 }
 
 .card img {
@@ -232,55 +260,42 @@ p {
 
 .card:hover {
   transform: translateY(-6px);
+
   box-shadow:
-    0 0 35px rgba(212,175,55,0.8),
-    0 0 50px rgba(18,60,124,0.9);
+    0 0 30px var(--glow-blue),
+    0 0 55px var(--glow-pink);
 }
 
 .card.selected {
-  outline: 3px solid var(--gold-main);
+  outline: 3px solid var(--neon-blue);
+
   box-shadow:
-    0 0 45px rgba(212,175,55,1),
-    0 0 65px rgba(18,60,124,1);
+    0 0 45px var(--glow-blue),
+    0 0 75px var(--glow-purple);
 }
 
 /* =========================
-   SPINNER – ADMIN LOADER
+   SPINNER – NEON LOADER
 ========================= */
 .spinner {
   width: 72px;
   height: 72px;
   border-radius: 50%;
   margin: 22px auto;
+
   border: 6px solid rgba(255,255,255,0.15);
-  border-top: 6px solid var(--gold-main);
+  border-top: 6px solid var(--neon-pink);
+
   animation: spin 1s linear infinite;
+
   box-shadow:
-    0 0 30px rgba(212,175,55,0.9),
-    0 0 55px rgba(18,60,124,0.9);
+    0 0 30px var(--glow-pink),
+    0 0 55px var(--glow-blue);
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-/* =========================
-   FINAL POP
-========================= */
-#finalCards .card {
-  animation: popIn 0.45s ease;
-}
-
-@keyframes popIn {
-  from {
-    transform: scale(0.6);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
   }
 }
 
